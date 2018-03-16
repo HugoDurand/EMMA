@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock %}
+{% block body %}
+    <div class="row">
+    <h3>1. Téléchargez le model</h3>
+        <br/><br/>
+    <form method="post">
+        <input class="col-md-2 col-md-push-5 submit" type="submit" name="download" value="Télécharger">
+    </form>
+<br/><br/><br/>
+    <hr>
+    </div>
+<div class="row">
+    <h3>2. Uploadez le fichier</h3>
+
+
+    <div class="col-md-2 col-md-offset-5 divupload">
+        <img class="uploadimg" src="{{ asset('img/upload.png') }}" class="dropzone my-dropzone col-md-4 col-md-offset-4" id="form_snippet_image" action="{{path('ajax_snippet_image_send')}}">
+
+    </div>
+
+</div>
+<div class="row">
+
+    <a class="col-md-1 col-md-push-10 next" href="{{ path('preview') }}">Preview <i class="fas fa-angle-right"></i></a>
+
+</div>
+    <script>
+        var _actionToDropZone = $("#form_snippet_image").attr('action');
+
+        Dropzone.autoDiscover = false;
+        var myDropzone = new Dropzone("#form_snippet_image", { url: _actionToDropZone });
+
+        myDropzone.on("addedfile", function(file) {
+            swal({
+                title: "Reçu!",
+                text: "Le Fichier a bien été uploadé !",
+                icon: "success"
+            });
+        });
+    </script>
+
+{% endblock %}
+

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>{% endblock %}
+{% block title %}EMMA-Preview{% endblock %}
+
+{% block body %}
+
+
+
+
+
+    {#{% for key in rows|keys %}#}
+        {#{{ key }}#}
+        {#{% for row in rows %}#}
+            {#{{ row[key] }}#}
+        {#{% endfor %}#}
+    {#{% endfor %}#}
+
+
+    <br/><br/>
+<div class="row">
+    <div class="table-responsive col-md-10 col-md-push-1">
+        <table class="table table-striped">
+            <thead>
+            <tr class="bg-success">
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Identifiant</th>
+                <th scope="col">Mot de Passe</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in 1..rows|length -1%}
+            <tr>
+                <th class="bg-success" scope="row">{{ i }}</th>
+                    {% for row in rows[i] %}
+                     <td >{{ row }}</td>
+                    {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <a class="col-md-1 col-md-push-10 next" href="{{ path('build') }}">Build <i class="fa fa-angle-right"></i></a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block javascripts %}<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>{% endblock %}
+{% block body %}
+
+
+
+    {% block content %}
+
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-md-4 col-md-push-4 loginform">
+                <form action="{{ path("fos_user_security_check") }}" method="post">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
+
+                    <div class="input-holder"><i class="icon far fa-user"></i><input class="input" name="_username"  type="text" placeholder="Login"></div>
+                    <div class="input-holder"><i class="icon fas fa-lock"></i><input class="input" name="_password" type="password" placeholder="Password"></div>
+                    <div class="input-holder"><a class="link" href="{{ path("fos_user_registration_register") }}">Dont have account?</a> <input class="submit" name="_submit" type="submit" value="Log In"></div>
+
+                </form>
+            </div>
+        </div>
+
+    {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css?family=Fascinate+Inline');
+@import url('https://fonts.googleapis.com/css?family=Flamenco');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab:400,700');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+
+html, body{
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    background-color: #ECDDDA;
+}
+
+.emma{
+    text-align: center;
+    color: #9b908e;
+    font-size: 5em;
+    font-family: 'Fascinate Inline', cursive;
+}
+
+h3{
+    text-align: center;
+    color: #212121 !important;
+    font-family: 'Flamenco', cursive !important;
+}
+
+form{
+    font-size: 1.1em;
+    color: black;
+    font-family: 'Josefin Slab', serif;
+}
+
+.my-dropzone{
+    margin-top: 150px;
+    border-radius: 5px;
+    background-color: transparent !important;
+    color: #9b908e;
+    border: 0px !important;
+}
+
+.divupload{
+    margin-top: 50px;
+    text-align: center;
+}
+.uploadimg{
+    width: 100px;
+    cursor: pointer;
+}
+
+a{
+padding: 7px;
+text-decoration: none;
+}
+
+.next{
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width:150px;
+    height:40px;
+    margin-top: 50px;
+    background-color: rgba(243, 104, 224, 0.81);
+    border:none;
+    border-radius:2px;
+    color:#FFFFFF;
+    font-size:17px;
+    cursor:pointer !important;
+    outline:none;
+    font-family: 'Pacifico', cursive;
+}
+
+.next:hover{
+    color:#FFFFFF;
+    background-color: rgba(156, 63, 146, 0.81);
+}
+
+
+.button-holder{
+    padding-top:250px;
+}
+.ajax-button{
+    position:relative;
+    display:inline-block;
+    width:100px;
+    height:40px;
+    left:50%;
+    top:50%;
+    margin-left:-75px;
+    margin-top:-20px;
+    text-align:center;
+}
+.submit{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width:150px;
+    height:40px;
+    background-color: rgba(0, 206, 201, 0.81);
+    border:none;
+    border-radius:2px;
+    color:#FFFFFF;
+    font-size:17px;
+    cursor:pointer !important;
+    outline:none;
+    font-family: 'Pacifico', cursive;
+}
+
+.submit:hover{
+    background-color: #00847f;
+}
+.loading{
+    font-size:0;
+    width:30px;
+    height:30px;
+    margin-top:5px;
+    border-radius:15px;
+    padding:0;
+    border:3px solid #00cec9;
+    border-bottom:3px solid rgba(255,255,255,0.0);
+    border-left:3px solid rgba(255,255,255,0.0);
+    background-color:transparent !important;
+    animation-name: rotateAnimation;
+    -webkit-animation-name: wk-rotateAnimation;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    animation-delay: 0.2s;
+    -webkit-animation-delay: 0.2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes rotateAnimation {
+    0%   {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+@-webkit-keyframes wk-rotateAnimation {
+    0%   {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}
+}
+
+.fa{
+    color:#00cec9;
+    font-size:40px !important;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-9px;
+    margin-top:-9px;
+    -webkit-transform:scaleX(0) !important;
+    transform:scaleX(0) !important;
+}
+
+.finish{
+    -webkit-transform:scaleX(1) !important;
+    transform:scaleX(1) !important;
+}
+.hide-loading{
+    opacity:0;
+    -webkit-transform: rotate(0deg) !important;
+    transform: rotate(0deg) !important;
+    -webkit-transform:scale(0) !important;
+    transform:scale(0) !important;
+}
+
+
+
+
+.loginfotext{
+    color: #000000;
+    font-size: 1.1em;
+    font-family: 'Flamenco', cursive !important;
+}
+
+
+.loginfo{
+    position: absolute;
+    padding: 5px;
+}
+
+
+.loginform{
+    margin-top: 50px;
+}
+
+
+
+.icon
+{
+    color: #212121;
+}
+.input-holder
+{
+    padding-top: 30px;
+}
+.input
+{
+    caret-color: #212121;
+    color: #212121;
+    border: none;
+    background: transparent;
+    outline: none;
+    border-bottom: 0.5px solid #212121;
+    margin-left: 12px;
+    width: 90%;
+    padding-bottom: 8px;
+}
+.input:focus
+{
+    border-bottom: 0.5px solid #747474;
+}
+.link
+{
+    color: #212121;
+}
+.link:hover
+{
+    color: #878787;
+    text-decoration: none;
+}
