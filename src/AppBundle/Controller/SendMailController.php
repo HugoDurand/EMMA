@@ -25,20 +25,21 @@ class SendMailController extends Controller
         $date = new \DateTime;
         $date = $date->format('d-m-Y_H-i-s');
         $data = $request->request->get('send');
-        $verifmail = array();
-        foreach ($mails as $mail) {
+        $verifmail = 0;
 
+        foreach ($mails as $mail) {
             $pmail = $em->getRepository(Mail::class)->findBy(['emailFrom'=>$mail['from'], 'emailTo'=>$mail['to'], 'emailSubject'=>$mail['subject'], 'send'=>0 ,'emailContent'=>$mail['content'], 'userId'=>$this->getUser()->getId()]);
 
             $message = (new \Swift_Message($mail['subject']))
-                ->setFrom($mail['from'])
+                ->setFrom($mail['from'], $mail['alias'])
                 ->setTo($mail['to'])
+                ->setBcc('hugo.durand@viaaduc.com')
                 ->setBody($mail['content'], 'text/html'
                 );
 
             if(isset($data)) {
                 $mailer->send($message);
-                $verifmail[] = $mailer->send($message);
+                $verifmail++;
 
                 $pmail[0]->setSend(1);
                 $em->flush();
@@ -48,8 +49,9 @@ class SendMailController extends Controller
 
         }
 
-        if(count($verifmail) == count($mails)){
+        if($verifmail == count($mails)){
             $session->invalidate();
+            //var_dump($verifmail);
             return $this->redirectToRoute('homepage');
         }else{
             return $this->render('AppBundle:SendMail:send.html.twig', array(

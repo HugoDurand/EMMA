@@ -31,8 +31,15 @@
         var _actionToDropZone = $("#form_snippet_image").attr('action');
 
         Dropzone.autoDiscover = false;
-        var myDropzone = new Dropzone("#form_snippet_image", { url: _actionToDropZone });
+        var myDropzone = new Dropzone("#form_snippet_image", {url: _actionToDropZone });
 
+        myDropzone.options.form_snippet_image= {
+            uploadMultiple: false,
+            parallelUploads: false,
+            acceptedFiles: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            maxFilesize: 5
+
+        };
         myDropzone.on("addedfile", function(file) {
             swal({
                 title: "Reçu!",
@@ -43,6 +50,10 @@
 
         window.sr = ScrollReveal();
         sr.reveal('.row', 50);
+    </script>
+
+    <script>
+
     </script>
 
 {% endblock %}

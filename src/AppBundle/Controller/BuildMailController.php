@@ -23,6 +23,11 @@ class BuildMailController extends Controller
         $data = $request->request->get("editordata");
         $subject = $request->request->get("subject");
         $from = $request->request->get("from");
+        $alias = $request->request->get("alias");
+        if(!empty($alias)){
+            $alias = htmlspecialchars($alias);
+        }
+
         $mail = array();
         for ($i = 1; $i < count($rows);$i++){
             if(isset($data)){
@@ -34,7 +39,7 @@ class BuildMailController extends Controller
                // $mail["subject"] = $subject;
                // $mail["content"] = $content;
                // $mail["to"] = $rows[$i][2];
-                $mail[]=array("from"=>$from, "subject"=>$subject, "content"=>$content, "to"=>$rows[$i][2]);
+                $mail[]=array("from"=>$from, "subject"=>$subject, "content"=>$content, "to"=>$rows[$i][2], "alias"=>$alias);
 
                 $pmail = new Mail();
                 $pmail->setUserId($this->getUser()->getId());

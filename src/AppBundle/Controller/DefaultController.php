@@ -16,6 +16,9 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
 
+        $session = $request->getSession();
+        $media = $session->get('media');
+
         $data = $request->request->get('download');
         define('APPLICATION_PATH', realpath(__DIR__) . '/');
         define('WEB_PATH',  APPLICATION_PATH . '../web/uploads');
@@ -30,6 +33,7 @@ class DefaultController extends Controller
 
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'media' => $media,
         ]);
     }
 
